@@ -1,0 +1,172 @@
+
+
+/* src/components/Header.css */
+.header {
+    background: black; /* Gradient background */
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    position: sticky;
+     top: 0;
+  }
+  
+  .store-name {
+    display: flex;
+    align-items: center;
+    gap: 1.0rem; /* Space between store name and cart icon */
+   
+  }
+  .cart-name{
+    color:orange;
+  }
+  
+  .store-name h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0;
+    color: orange;
+    
+  }
+ 
+  
+  .cart-icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    color: orange;
+    text-decoration: none;
+  }
+  
+  .cart-icon:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+    border-radius: 25px;
+    padding: 0.5rem 1rem;
+    width: 40%; /* Adjust width as needed */
+    position: relative; /* For positioning the search icon */
+  }
+  
+  .search-bar input {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    width: 100%;
+    outline: none;
+    padding-right: 2rem; /* Space for the search icon */
+  }
+  
+  .search-bar input::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Placeholder color */
+  }
+  
+  .search-icon {
+    position: absolute;
+    right: 1rem; /* Position the icon on the right */
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    color: orange;
+  }
+  
+  .search-icon:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+  }
+  
+  .auth-links {
+    display: flex;
+    gap: 1.5rem; /* Space between links */
+  }
+  
+  .auth-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+  
+  .auth-links a:hover {
+    color: #ffdd57; /* Highlight color on hover */
+  }
+
+  
+
+  /* src/components/Header.css */
+.auth-links a, .auth-links button {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .auth-links a:hover, .auth-links button:hover {
+    color: #ffdd57;
+  }
+  
+  .auth-form {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .auth-form input {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .auth-form button {
+    padding: 0.5rem 1rem;
+    background: #2575fc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .auth-form button:hover {
+    background: #1a5bbf;
+  }
+
+  .home-icon {
+    font-size: 1.5rem;
+    color: orange;
+    transition: transform 0.2s ease;
+  }
+  
+  .home-icon:hover {
+    color: #ffdd57;
+    transform: scale(1.1);
+  }
+
+  .profile-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    color: white;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .profile-link:hover {
+    color: #ffdd57;
+  }
