@@ -154,12 +154,7 @@ const initialProducts = [
 const Home = ({ searchQuery, setSearchQuery }) => {
   const { addToCart } = useContext(CartContext); // Use CartContext
   const [products, setProducts] = useState(initialProducts); // State for products
-  const [newProduct, setNewProduct] = useState({
-    name: "",
-    price: "",
-    stock: "", // Add stock field
-    image: null,
-  });
+  
 
   // Filter products based on the search query
   const filteredProducts = products.filter((product) =>
@@ -167,40 +162,7 @@ const Home = ({ searchQuery, setSearchQuery }) => {
   );
 
   // Handle form input changes
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setNewProduct({ ...newProduct, [name]: value });
-  };
-
-  // Handle image file input
-  const handleImageChange = (e) => {
-    setNewProduct({ ...newProduct, image: e.target.files[0] });
-  };
-
-  // Handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // Create a new product object
-    const product = {
-      id: Date.now(), // Unique ID for the product
-      name: newProduct.name,
-      price: parseFloat(newProduct.price),
-      stock: parseInt(newProduct.stock), // Add stock field
-      image: newProduct.image ? URL.createObjectURL(newProduct.image) : "https://via.placeholder.com/150", // Use a placeholder if no image is uploaded
-    };
-
-    // Add the new product to the products list
-    setProducts([...products, product]);
-
-    // Reset the form
-    setNewProduct({
-      name: "",
-      price: "",
-      stock: "", // Reset stock field
-      image: null,
-    });
-  };
+ 
 
   // Handle adding a product to the cart
   const handleAddToCart = (product) => {
@@ -240,53 +202,7 @@ const Home = ({ searchQuery, setSearchQuery }) => {
       {/* Main Content */}
       <div className="main-content">
         {/* Product Form */}
-        <div className="product-form">
-          <h2>Add a New Product</h2>
-          <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label>Product Name:</label>
-              <input
-                type="text"
-                name="name"
-                value={newProduct.name}
-                onChange={handleInputChange}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label>Price (ksh):</label>
-              <input
-                type="number"
-                name="price"
-                value={newProduct.price}
-                onChange={handleInputChange}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label>Stock Available:</label>
-              <input
-                type="number"
-                name="stock"
-                value={newProduct.stock}
-                onChange={handleInputChange}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label>Product Image:</label>
-              <input
-                type="file"
-                accept="image/*"
-                onChange={handleImageChange}
-                required
-              />
-            </div>
-            <button type="submit" className="submit-button">
-              Add Product
-            </button>
-          </form>
-        </div>
+        
 
         {/* Product List */}
         <div className="product-list">

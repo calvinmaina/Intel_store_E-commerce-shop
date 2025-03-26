@@ -7,6 +7,7 @@
   padding: 15px;
   max-width: 100%;
   overflow-x: hidden;
+  display: inline-flexbox;
 }
 
 .home h1 {
