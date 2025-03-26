@@ -1,20 +1,21 @@
 
 
 /* src/components/Home.css */
-.home-page{
+.home-page {
   text-align: center;
   background-color: white;
-  
-  padding: 20px;
+  padding: 15px;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .home h1 {
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 4vw, 2.5rem); /* Responsive font size */
   margin-bottom: 1rem;
 }
 
 .home p {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2vw, 1.2rem); /* Responsive font size */
   color: #555;
   margin-bottom: 2rem;
 }
@@ -23,72 +24,62 @@
   display: flex;
   justify-content: center;
   gap: 1rem;
+  flex-wrap: wrap; /* Allow buttons to wrap on small screens */
 }
 
 .auth-link {
-  padding: 0.75rem 1.5rem;
+  padding: 0.6rem 1.2rem;
   background-color: #2575fc;
   color: white;
   border-radius: 5px;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
   transition: background-color 0.2s ease;
   text-decoration: none;
-}
-
-.auth-link:hover {
-  background-color: #1a5bbf;
+  width: 100%; /* Full width on small screens */
+  max-width: 200px; /* But limit maximum width */
 }
 
 .content {
   display: flex;
+  flex-direction: column; /* Stack on mobile */
   gap: 2rem;
-  justify-content: space-between;
 }
-.product-list{
+
+.product-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
-  justify-content: flex-end;
-  
-
+  gap: 15px;
+  justify-content: center; /* Center items on small screens */
 }
-
 
 .product-item {
   border: 1px solid orange;
   padding: 15px;
   border-radius: 8px;
-  width: 200px;
+  width: 100%; /* Full width on mobile */
+  max-width: 200px; /* Limit width on larger screens */
   text-align: center;
-  grid-template-columns: repeat(3, 1);
- 
-  
 }
 
-
-.product-item button{
-  color: orange;
-  background-color: rgb(245, 166, 19);
+.product-item button {
   color: white;
+  background-color: rgb(245, 166, 19);
   border: none;
-  padding: 10px 15px;
+  padding: 8px 12px;
   border-radius: 5px;
   cursor: pointer;
+  width: 100%; /* Full width button */
 }
 
-
-
-.product-item button:hover {
-  background-color: rgba(255, 166, 0, 0.562);
-}
-.smart{
+.smart {
   color: orange;
   text-align: center;
+  font-size: clamp(1.5rem, 3vw, 2rem);
 }
 
-.sidebar{
+.sidebar {
   width: 100%;
-  height: 40%;
+  min-height: 300px; /* Minimum height */
   background-color: orange;
   padding: 20px;
   display: flex;
@@ -98,69 +89,90 @@
   text-align: center;
   background-image: url("../assets/menfashion.png");
   background-repeat: no-repeat;
-  width: 100%;
-  height: 50%;
   background-size: cover;
-  
-  
+  background-position: center;
 }
-.store-info{
+
+.store-info {
   margin-top: 20px;
   color: orange;
+  font-size: clamp(1rem, 2vw, 1.2rem);
 }
-.social-links a{
+
+.social-links a {
   display: block;
   text-decoration: none;
   font-weight: bold;
   color: white;
-}
-.social-links a:hover{
-  display: block;
-  text-decoration: none;
-  font-weight: bold;
-  color: orange;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  padding: 5px 0;
 }
 
 .main-content {
   flex: 1;
-  padding: 20px;
+  padding: 15px;
   display: flex;
-  
+  flex-direction: column; /* Stack on mobile */
 }
 
 .product-form {
   margin-bottom: 20px;
-  padding: 20px;
+  padding: 15px;
   background-color: orange;
   border: 1px solid #ccc;
   border-radius: 10px;
-  height: 30%;
-  width: 40%;
+  width: 100%; /* Full width on mobile */
+  max-width: 500px; /* Limit width on larger screens */
+  margin: 0 auto 20px; /* Center the form */
 }
 
 .product-form h2 {
-  font-size: 1.5em;
-  margin-bottom: 20px;
-}
-.form-group {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
   margin-bottom: 15px;
 }
 
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
+.form-group {
+  margin-bottom: 12px;
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
+  padding: 8px;
+  font-size: clamp(14px, 2vw, 16px);
 }
-.form-group textarea {
-  resize: vertical;
-  min-height: 100px;
+
+/* Media Queries for specific breakpoints */
+@media (min-width: 768px) {
+  .content {
+    flex-direction: row; /* Side by side on larger screens */
+  }
+  
+  .product-list {
+    justify-content: flex-end; /* Align to end on larger screens */
+  }
+  
+  .auth-link {
+    width: auto; /* Auto width on larger screens */
+  }
+  
+  .main-content {
+    flex-direction: row; /* Side by side on larger screens */
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .product-form {
+    width: 45%; /* Two columns on tablet and up */
+  }
+}
+
+@media (min-width: 992px) {
+  .product-form {
+    width: 40%; /* Wider form on desktop */
+  }
+  
+  .sidebar {
+    height: 400px; /* Taller sidebar on desktop */
+  }
 }
